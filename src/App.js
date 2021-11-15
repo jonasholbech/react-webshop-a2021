@@ -7,31 +7,30 @@ function Nav() {
     </nav>
   );
 }
-function Product() {
+function Product(props) {
+  console.log(props);
   return (
     <article>
-      <h2>Product 1</h2>
-      <p>lorem</p>
+      <h2>{props.productdisplayname}</h2>
+      <p>${props.price}</p>
     </article>
   );
 }
-function ProductList() {
+
+function ProductList(props) {
   return (
     <section>
       <h1>Product List</h1>
       <section className="ProductList">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        <Product {...props.product} />
       </section>
     </section>
   );
 }
-function Basket() {
+function Basket(props) {
   return (
     <aside>
-      <MyBasket />
+      <MyBasket basket={props.basket} />
       <CheckoutForm />
     </aside>
   );
@@ -45,21 +44,28 @@ function CheckoutForm() {
   );
 }
 
-function MyBasket() {
+function MyBasket(props) {
   return (
     <div>
       <h2>Your Basket</h2>
-      <p>3 items</p>
+      <p>{props.basket.length} items</p>
       <p>$420</p>
     </div>
   );
 }
 function App() {
+  const product = {
+    id: 1163,
+    productdisplayname: "Round Neck Jersey",
+    price: 895,
+    soldOut: 0,
+  };
+  const basket = [1, 2, 3];
   return (
     <div className="App">
       <Nav />
-      <ProductList />
-      <Basket />
+      <ProductList product={product} />
+      <Basket basket={basket} />
     </div>
   );
 }
