@@ -31,14 +31,27 @@ function ProductList() {
 function Basket() {
   return (
     <aside>
-      <div>
-        <h2>Your Basket</h2>
-        <p>3 items</p>
-        <p>$420</p>
-      </div>
+      <MyBasket />
+      <CheckoutForm />
+    </aside>
+  );
+}
+function CheckoutForm() {
+  return (
+    <>
       <h3>Checkout</h3>
       <form></form>
-    </aside>
+    </>
+  );
+}
+
+function MyBasket() {
+  return (
+    <div>
+      <h2>Your Basket</h2>
+      <p>3 items</p>
+      <p>$420</p>
+    </div>
   );
 }
 function App() {
