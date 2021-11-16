@@ -1,8 +1,9 @@
 export default function Product(props) {
+  const color = props.soldOut ? "red" : "green";
   return (
     <article
       style={{
-        backgroundColor: props.soldOut ? "red" : "green",
+        backgroundColor: color,
       }}
     >
       <h2>{props.productdisplayname}</h2>
