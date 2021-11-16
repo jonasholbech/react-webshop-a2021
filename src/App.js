@@ -160,7 +160,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <ProductList products={products} />
+      <ProductList products={products} break="hell yeah" />
       <Basket basket={basket} />
     </div>
   );
