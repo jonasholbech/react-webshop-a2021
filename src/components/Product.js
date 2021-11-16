@@ -1,8 +1,12 @@
+import { useState } from "react";
 export default function Product(props) {
+  const [message, setMessage] = useState("hi mom");
+
   const color = props.soldOut ? "red" : "green";
   function handleClick() {
-    console.log(props.id);
+    setMessage((prevState) => prevState + " and dad");
   }
+
   return (
     <article
       style={{
@@ -11,7 +15,8 @@ export default function Product(props) {
     >
       <h2>{props.productdisplayname}</h2>
       <p>${props.price}</p>
-      <button onClick={handleClick}>Click me</button>
+      <button onClick={handleClick}>Click me </button>
+      <div>{message}</div>
     </article>
   );
 }

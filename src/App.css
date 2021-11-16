@@ -12,3 +12,9 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.open {
+  display: initial;
+}
+.closed {
+  display: none;
+}
