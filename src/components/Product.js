@@ -4,11 +4,17 @@ export default function Product(props) {
   const color = props.soldOut ? "red" : "green";
 
   function minus() {
-    setAmount((oldAmount) => oldAmount - 1);
+    setAmount((oldAmount) => {
+      if (oldAmount > 0) {
+        return oldAmount - 1;
+      }
+      return 0;
+    });
   }
   function plus() {
     setAmount((oldAmount) => oldAmount + 1);
   }
+
   return (
     <article
       style={{
