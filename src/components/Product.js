@@ -1,12 +1,14 @@
 import { useState } from "react";
 export default function Product(props) {
-  const [message, setMessage] = useState("hi mom");
-
+  const [amount, setAmount] = useState(0);
   const color = props.soldOut ? "red" : "green";
-  function handleClick() {
-    setMessage((prevState) => prevState + " and dad");
-  }
 
+  function minus() {
+    setAmount((oldAmount) => oldAmount - 1);
+  }
+  function plus() {
+    setAmount((oldAmount) => oldAmount + 1);
+  }
   return (
     <article
       style={{
@@ -15,8 +17,9 @@ export default function Product(props) {
     >
       <h2>{props.productdisplayname}</h2>
       <p>${props.price}</p>
-      <button onClick={handleClick}>Click me </button>
-      <div>{message}</div>
+      <button onClick={minus}> - </button>
+      {amount}
+      <button onClick={plus}> + </button>
     </article>
   );
 }
