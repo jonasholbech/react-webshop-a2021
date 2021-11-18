@@ -163,12 +163,9 @@ function App() {
       oldProducts.concat({ productdisplayname: "Hi", price: 12 })
     );
   }
-  function addToBasket() {
+  function addToBasket(product) {
     setBasket(function (oldBasket) {
-      const nextState = oldBasket.concat({
-        productdisplayname: "T-Shirt",
-        price: 120,
-      });
+      const nextState = oldBasket.concat(product);
       return nextState;
     });
   }
@@ -190,7 +187,11 @@ function App() {
       <button onClick={addToBasket} className="full-bleed">
         Add to basket
       </button>
-      <ProductList products={productCopy} break="hell yeah" />
+      <ProductList
+        addToBasket={addToBasket}
+        products={productCopy}
+        break="hell yeah"
+      />
       <Basket basket={basket} />
     </div>
   );

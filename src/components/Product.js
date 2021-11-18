@@ -13,6 +13,11 @@ export default function Product(props) {
   }
   function plus() {
     setAmount((oldAmount) => oldAmount + 1);
+    props.addToBasket({
+      price: props.price,
+      productdisplayname: props.productdisplayname,
+      id: props.id,
+    });
   }
 
   return (
