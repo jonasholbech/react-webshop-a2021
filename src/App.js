@@ -157,10 +157,17 @@ function App() {
       soldout: 0,
     },
   ]);
+  const [basket, setBasket] = useState([1, 2, 3]);
   function addProduct() {
     setProducts((oldProducts) =>
       oldProducts.concat({ productdisplayname: "Hi", price: 12 })
     );
+  }
+  function addToBasket() {
+    setBasket(function (oldBasket) {
+      const nextState = oldBasket.concat(4);
+      return nextState;
+    });
   }
   const productCopy = [...products];
   productCopy.sort((a, b) => {
@@ -170,12 +177,15 @@ function App() {
       return -1;
     }
   });
-  const basket = [1, 2, 3];
+
   return (
     <div className="App">
       <Nav />
       <button className="full-bleed" onClick={addProduct}>
         Add Product
+      </button>
+      <button onClick={addToBasket} class="full-bleed">
+        Add to basket
       </button>
       <ProductList products={productCopy} break="hell yeah" />
       <Basket basket={basket} />

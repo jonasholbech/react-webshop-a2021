@@ -1,7 +1,7 @@
 import { useState } from "react";
 export default function Product(props) {
   const [amount, setAmount] = useState(0);
-  const color = props.soldOut ? "red" : "green";
+  const color = props.soldout ? "red" : "green";
 
   function minus() {
     setAmount((oldAmount) => {
