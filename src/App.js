@@ -157,7 +157,7 @@ function App() {
       soldout: 0,
     },
   ]);
-  const [basket, setBasket] = useState([1, 2, 3]);
+  const [basket, setBasket] = useState([]);
   function addProduct() {
     setProducts((oldProducts) =>
       oldProducts.concat({ productdisplayname: "Hi", price: 12 })
@@ -165,7 +165,10 @@ function App() {
   }
   function addToBasket() {
     setBasket(function (oldBasket) {
-      const nextState = oldBasket.concat(4);
+      const nextState = oldBasket.concat({
+        productdisplayname: "T-Shirt",
+        price: 120,
+      });
       return nextState;
     });
   }
@@ -184,7 +187,7 @@ function App() {
       <button className="full-bleed" onClick={addProduct}>
         Add Product
       </button>
-      <button onClick={addToBasket} class="full-bleed">
+      <button onClick={addToBasket} className="full-bleed">
         Add to basket
       </button>
       <ProductList products={productCopy} break="hell yeah" />
