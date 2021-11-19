@@ -28,9 +28,15 @@ export default function Product(props) {
     >
       <h2>{props.productdisplayname}</h2>
       <p>${props.price}</p>
-      <button onClick={minus}> - </button>
+      <button onClick={minus} disabled={props.soldout || amount === 0}>
+        {" "}
+        -{" "}
+      </button>
       {amount}
-      <button onClick={plus}> + </button>
+      <button onClick={plus} disabled={props.soldout}>
+        {" "}
+        +{" "}
+      </button>
     </article>
   );
 }

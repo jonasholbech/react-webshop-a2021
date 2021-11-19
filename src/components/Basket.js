@@ -5,7 +5,7 @@ export default function Basket(props) {
   return (
     <aside>
       <MyBasket basket={props.basket} />
-      <CheckoutForm />
+      <CheckoutForm basket={props.basket} />
     </aside>
   );
 }
