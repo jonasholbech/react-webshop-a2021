@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+
 export default function CheckoutForm(props) {
   const form = useRef(null);
 
@@ -14,6 +15,7 @@ export default function CheckoutForm(props) {
   return (
     <>
       <h3>Checkout</h3>
+
       {props.basket.length > 0 && (
         <form ref={form} onSubmit={onSubmit}>
           <label>
